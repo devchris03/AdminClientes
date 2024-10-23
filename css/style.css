@@ -1,6 +1,7 @@
 :root {
     font-size: 16px;
     --primaryColor: #005959;
+    --secundaryColor: ##c3c6c7;
     --grayColor: #433e4e;
     --grayLightColor: #b0a8af;
     --whiteColor: #fffbf4;
@@ -15,7 +16,7 @@ body {
     min-block-size: 100vh;
     display: grid;
     grid-template-columns: 100vw;
-    grid-template-rows: 80px 1fr;
+    grid-template-rows: 5rem 1fr;
 }
 
 img {
@@ -74,7 +75,7 @@ img {
     transform: translateX(-100%);
     padding-block: 2rem;
     padding-inline: 1rem;
-    background: var(--whiteColor);
+    background: var(--secundaryColor);
 }
 
 .aside.asideActive {
@@ -149,6 +150,51 @@ img {
     border-bottom: 1px solid var(--grayLightColor);
 }
 
+/* formulario */
+.form {
+    margin-block-start: 2rem;
+    padding: 1.5rem 1rem;
+    border-radius: .5rem;
+    background: rgb(176, 168, 175, .3);
+    max-inline-size: 28.125rem;
+    margin-inline: auto;
+}
+
+.camp {
+    margin-block-end: 1rem;
+}
+
+.label {
+    display: block;
+    margin-block-end: .5rem;
+    font-weight: 700;
+    font-size: .875rem;
+    color: var(--grayColor);
+}
+
+.input {
+    display: block;
+    inline-size: 100%;
+    border-radius: .5rem;
+    padding: .5rem .5rem;
+    border: 1px solid var(--grayLightColor);
+    box-sizing: border-box;
+    font-size: .875rem;
+}
+
+.submit {
+    inline-size: 100%;
+    margin-block-start: 1rem;
+    background: var(--primaryColor);
+    color: var(--whiteColor);
+    font-size: 1rem;
+    border-radius: 5rem;
+    border: none;
+    padding: .5rem;
+    box-shadow: inset -2px -2px 2px var(--grayColor);
+    cursor: pointer;
+}
+
 /* media queries */
 
 @media (width >= 768px) {
@@ -186,6 +232,6 @@ img {
     .aside {
         position: static;
         transform: translateX(0);
-        border-inline-end: 1px solid var(--grayLightColor);
+        border-inline-end: 1px solid var(--primaryColor);
     }
 }

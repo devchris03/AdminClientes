@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>CRM - Clientes</title>
+</head>
+<body>
+    <header class="header">
+        <div class="action">
+            <button class="menu" aria-label="Abrir menú"><img src="./img/icon-menu.svg" alt="icono menu" width="24" height="24"></button>
+        </div>
+
+        <div class="logo">
+            <img class="image" src="./img/logo.svg" alt="Icono CRM" width="32" height="32">
+            <span class="text">CRM INDEXEDDB</span>
+        </div> <!-- logo -->
+        
+    </header> <!-- header -->
+    <div class="layout">
+        <aside class="aside">
+            <div class="logo">
+                <img class="image" src="./img/logo.svg" alt="Icono CRM" width="32" height="32">
+                <span class="text">CRM INDEXEDDB</span>
+            </div> <!-- logo -->
+            <span class="description">Administra tus clientes</span>
+
+            <nav class="nav">
+                <a href="./" class="item" aria-label="Ver lista de clientes"><img src="./img/icon-customer.svg" alt="icono cliente" width="24" height="24"> Clientes</a>
+                <a href="./nuevo-cliente.html" aria-label="Agregar cliente" class="item active"><img src="./img/icon-add-curstomer.svg" alt="icono Cliente y simbolo de suma" width="24" height="24"> Nuevo Cliente</a>
+            </nav> <!-- nav -->
+        </aside> 
+        <main class="main">
+            <h1 class="title">Nuevo Cliente</h1>
+
+            <form action="" class="form">
+                <div class="camp">
+                    <label for="nombre" class="label">Nombre</label>
+                    <input type="text" required class="input" placeholder="Nombre Cliente" id="nombre">
+                </div> <!-- camp -->
+                <div class="camp">
+                    <label for="email"  class="label">Correo</label>
+                    <input type="email" autocomplete="email" required class="input" placeholder="Email Cliente" id="email">
+                </div> <!-- camp -->
+                <div class="camp">
+                    <label for="telefono" class="label">Teléfono</label>
+                    <input type="tel" required class="input" placeholder="Teléfono Cliente" id="telefono">
+                </div> <!-- camp -->
+                <div class="camp">
+                    <label for="empresa" class="label">Empresa</label>
+                    <input type="text" required class="input" placeholder="Empresa Cliente" id="empresa">
+                </div> <!-- camp -->
+
+                <input type="submit" id="submit" class="submit" value="Agregar Cliente">
+            </form>
+        </main>
+    </div>
+</body>
+</html>
