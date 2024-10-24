@@ -1,7 +1,7 @@
 :root {
     font-size: 16px;
     --primaryColor: #005959;
-    --secundaryColor: ##c3c6c7;
+    --secundaryColor: #c3c6c7;
     --grayColor: #433e4e;
     --grayLightColor: #b0a8af;
     --whiteColor: #fffbf4;
@@ -75,7 +75,7 @@ img {
     transform: translateX(-100%);
     padding-block: 2rem;
     padding-inline: 1rem;
-    background: var(--secundaryColor);
+    background: var(--whiteColor);
 }
 
 .aside.asideActive {
