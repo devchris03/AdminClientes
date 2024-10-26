@@ -20,6 +20,9 @@ function createdb() {
         console.log('Base de datos creada con éxito');
 
         DB = event.target.result;
+
+        // muestra lista de clientes
+        showClientes();
     }
 
     // configura schema
@@ -36,5 +39,59 @@ function createdb() {
         objectStore.createIndex('telefono', 'telefono', {unique: false});
         objectStore.createIndex('empresa', 'empresa', {unique: true});
         objectStore.createIndex('id', 'id', {unique: true});
+    }
+}
+
+function showClientes() {
+    const objectStore = DB.transaction('clientes', 'readwrite').objectStore('clientes')
+    
+    // mostrar cantidad de clientes
+    const quantity = objectStore.count();
+    quantity.onerror = function() {
+        console.log('Hubo un error al mostar cantidad de clientes')
+    }
+    quantity.onsuccess = function(event) {
+        const total = event.target.result; 
+
+        const result = document.querySelector('#result');
+
+        // inserta en el html
+        total > 0 ? result.textContent = `Existen ${total} clientes.` : result.textContent ='No hay clientes'
+    }
+
+    // obtiene los datos de la base
+    const cursor = objectStore.openCursor();
+
+    cursor.onerror = function() {
+        console.log('Hubo un error al obtener clientes')
+    }
+    
+    cursor.onsuccess = function(event) {
+        const cursor = event.target.result;
+
+        if(cursor) {
+            const {nombre, email, telefono, empresa, id} = cursor.value;
+
+            // crea fila de la tabla
+            const item = document.createElement('TR');
+            item.innerHTML = `
+                <td>
+                    <p class="nameCliente">${nombre}</p>
+                    <p>${email}</p>
+                </td>
+                <td>${telefono}</td>
+                <td>${empresa}</td>
+                <td>
+                    <a href="./editar-cliente.html" id="${id}" aria-label="editar cliente" class="buttonAction edit">Editar</a>
+                    <a href="#" data-cliente="${id}" aria-label="eliminar cliente" class="buttonAction delete">Eliminar</a>
+                </td>
+                `;
+
+            // muestra el siguiente registro
+            cursor.continue();
+
+            // inserta en el html
+            document.querySelector('#list').appendChild(item);
+        }
     }
 }
