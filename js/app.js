@@ -82,7 +82,7 @@ function showClientes() {
                 <td>${telefono}</td>
                 <td>${empresa}</td>
                 <td>
-                    <a href="./editar-cliente.html" id="${id}" aria-label="editar cliente" class="buttonAction edit">Editar</a>
+                    <a href="./editar-cliente.html?id=${id}" aria-label="editar cliente" class="buttonAction edit">Editar</a>
                     <a href="#" data-cliente="${id}" aria-label="eliminar cliente" class="buttonAction delete">Eliminar</a>
                 </td>
                 `;

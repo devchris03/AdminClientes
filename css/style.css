@@ -233,7 +233,7 @@ img {
     color: var(--redColor);
 }
 
-.alert.sucess {
+.alert.success {
     background: rgb(48, 202, 105, .2);
     color: var(--greenColor);
 }

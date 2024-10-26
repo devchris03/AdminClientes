@@ -84,7 +84,7 @@ function alert(type, message) {
     if(type === 'error') {
         alert.classList.add('error')
     } else {
-        alert.classList.add('sucess')
+        alert.classList.add('success')
     }
 
     form.parentElement.insertBefore(alert, form);
