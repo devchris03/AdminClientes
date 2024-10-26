@@ -6,7 +6,7 @@
     --grayLightColor: #b0a8af;
     --whiteColor: #fffbf4;
     --redColor: #9c1d44;
-    --greenColor: #30ca69;
+    --greenColor: #005a45;
 }
 
 /* general */
@@ -150,6 +150,29 @@ img {
 .table td {
     padding: .75rem;
     border-bottom: 1px solid var(--grayLightColor);
+}
+
+.nameCliente {
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: capitalize;
+}
+
+.buttonAction {
+    text-decoration: none;
+    padding: .25rem .5rem;
+    margin-inline: .25rem;
+    font-weight: 700;
+}
+
+.delete {
+    color: var(--redColor);
+    background: rgb(156, 29, 68, .2);
+}
+
+.edit {
+    color: var(--greenColor);
+    background: rgb(0, 90, 69, .2);
 }
 
 /* formulario */
