@@ -59,7 +59,7 @@ function showClientes() {
         const result = document.querySelector('#result');
 
         // inserta en el html
-        total > 0 ? result.textContent = `Existen ${total} clientes.` : result.textContent ='No hay clientes'
+        total > 0 ? result.textContent = `${total} registros` : result.textContent ='No hay clientes'
     }
 
     // obtiene los datos de la base
