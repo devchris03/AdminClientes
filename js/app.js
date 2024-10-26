@@ -1,9 +1,12 @@
 let DB;
+const list = document.querySelector('#list')
 
 // EVENTOS
 window.onload = function() {
     // crear base de dato
     createdb();
+
+    list.addEventListener('click', deleteCliente);
 }
 
 // FUNCIONES
@@ -91,7 +94,57 @@ function showClientes() {
             cursor.continue();
 
             // inserta en el html
-            document.querySelector('#list').appendChild(item);
+            list.appendChild(item);
         }
     }
+}
+
+// elimina cliente
+function deleteCliente(event) {
+
+    if(event.target.classList.contains('delete')) {
+
+        const idDelete = Number(event.target.dataset.cliente);
+
+        const confirm = window.confirm('¿Estas seguro de querer eliminar este registro?');
+
+        if(confirm) {
+            const transaction = DB.transaction('clientes', 'readwrite');
+            const objectStore = transaction.objectStore('clientes');
+
+            objectStore.delete(idDelete);
+
+            transaction.onerror = function() {
+                alert('error', 'Error al intentar eliminar registro.');
+            }
+
+            transaction.oncomplete = function() {
+                alert('success', 'Registro eliminado.')
+
+                // elimina registro del html
+                event.target.closest('tr').remove();
+            }
+        }   
+    }
+}
+
+// muestra alerta
+function alert(type, message) {
+    const alert = document.createElement('P');
+    alert.classList.add('alert')
+
+    alert.textContent = message;
+
+    if(type === 'error') {
+        alert.classList.add('error')
+    } else {
+        alert.classList.add('success')
+    }
+
+    document.querySelector('.containerTable').parentElement.insertBefore(alert, document.querySelector('.containerTable'));
+
+    setTimeout(() => {
+        alert.remove();
+    }, 3000)
+
 }

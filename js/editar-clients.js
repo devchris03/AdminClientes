@@ -104,7 +104,7 @@ function validate(event) {
 
         setTimeout(() => {
             window.location.href = "./index.html";
-        })
+        }, 3000)
     }
 }
 
